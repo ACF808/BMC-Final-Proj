@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alcohol & the Immune System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bmc_style.css">
+  <script src="bmc_java.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Alcohol & the Immune System</h1>
+  <p>How drinking affects your body’s defense system</p>
+</header>
+
+<nav>
+  <a href="bmc_final.html">Home</a>
+  <a href="interactive.html">Activities</a>
+  <a href="sources.html">Sources</a>
+</nav>
+
+<section id="slider">
+  <h2>How Drinking Level Affects Risk</h2>
+
+  <div class="slider-box">
+    <p>Move the slider to see how immune risk increases:</p>
+    <input type="range" min="0" max="3" value="0" id="drinkSlider" oninput="updateRisk()">
+    <h3 id="riskText">No alcohol: normal immune function</h3>
+  </div>
+</section>
+
+<section id="game">
+  <h2>Detox Battle: ADH vs ALDH</h2>
+  <h3>Game Explanation</h3>
+
+  <ul class="margin">
+    <li>Molecules (pink) → Represent alcohol entering the cell. Players act as enzymes:</li>
+      <ul class="second">
+        <li>ADH (Alcohol Dehydrogenase) catches molecules and converts ethanol into acetaldehyde.</li>
+        <li>ALDH (Aldehyde Dehydrogenase) catches acetaldehyde molecules to detoxify them.</li>
+      </ul>
+    <li>Heal Power-Up (green) → Represents cell repair mechanisms, like antioxidants or enzyme support, reducing cellular stress.</li>
+    <li>Slow Power-Up (yellow) → Represents interventions that slow alcohol-induced damage, e.g., reduced ethanol influx or metabolic slowing.</li>
+    <li>Health Bar → Represents overall cell health. Missing molecules decreases health, simulating toxicity build-up.</li>
+    <li>Health Bar → Represents overall cell health. Missing molecules decreases health, simulating toxicity build-up.</li>
+  </ul>
+  <br>
+  <h4>Game Key</h4>
+  <div class="key-items">
+    <div class="key-item">
+      <div class="circle molecule"></div>
+      <span>Alcohol molecule (needs to be caught by ADH)</span>
+    </div>
+    <div class="key-item">
+      <div class="circle powerup-heal"></div>
+      <span>Heal Power-Up (represents reducing acetaldehyde stress)</span>
+    </div>
+    <div class="key-item">
+      <div class="circle powerup-slow"></div>
+      <span>Slow Power-Up (represents slowing damage accumulation)</span>
+    </div>
+  </div>
+  <br>
+  <p>
+    <strong>Objective:</strong> Catch as many alcohol molecules as ADH or ALDH while keeping the cell healthy.
+    Health decreases when molecules fall to the bottom, simulating cellular stress from alcohol.
+  </p>
+  <br>
+  <p>
+    <strong>
+      Player 1 navigates using A/D, Player 2 navigations using J/L
+    </strong>
+  </p>
+  <section>
+    <canvas id="gameCanvas" width="720" height="480" aria-label="Detox Battle canvas"></canvas>
+
+    <div id="scoreDisplay">Score: 0</div>
+
+    <div id="healthBarContainer" aria-hidden="false">
+      <div id="healthBar"></div>
+    </div>
+
+    <div id="gameOverScreen" class="hidden" role="dialog" aria-modal="true">
+      <div id="gameOverText">GAME OVER</div>
+      <div id="gameOverMessage" style="margin: .7rem 0;"></div>
+      <button id="restartBtn">Restart</button>
+    </div>
+  </section>
+
+  <script src="bmc_java_game.js"></script>
+</section>
+
+<footer>
+  <p>BMC Final Project - Sree Chitrapu, Alison Fung, Emily Schart</p>
+</footer>
+
+</body>
+</html>
